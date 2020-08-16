@@ -1,12 +1,22 @@
 <div class="card-columns">
-    <div class="card">
-        <img src="assets/img/guitarra1.jpg " class="card-img-top img-fluid pixels" alt="Card image cap">
+    <div *ngFor="let product of products" class="card">
+        <div class="card-header">{{product.brand}}</div>
+        <img [src]="product.picture " class="card-img-top img-fluid pixels" alt="Card image cap">
         <div class="card-body">
-            <h5 class="card-title">Alison Master Lenon</h5>
-            <p class="card-text">En zeta mopri</p>
+            <h5 class="card-title">{{product.name}}</h5>
+            <p class="card-text">{{product.description}}</p>
+            <h5>Precio<span class="badge badge-secondary">{{product.price}}Bs</span></h5>
         </div>
-        <button type="button" class="btn btn-outline-primary btn-block">
-            Boleto a Boston
+        <form (ngSubmit)="addProduct(product.id,forma)" #forma="ngForm">
+            <select ngModel *ngIf="logged==true" name="product_amount">
+            <option value=1>1</option>
+            <option value=2>2</option>
+            <option value=3>3</option>
+            <option value=4>4</option>
+        </select>
+            <button type="submit" class="btn btn-outline-primary btn-block">
+            Agregar Al Carrito
         </button>
+        </form>
     </div>
 </div>

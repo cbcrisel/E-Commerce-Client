@@ -1,1 +1,84 @@
-<p>cart works!</p>
+<div class="form-group row">
+
+    <h3 class="col-8">Total:{{totalPrice}}</h3>
+    <div class="col-2">
+        <button (click)="goToPayment()" class="btn btn-outline-primary">Pagar</button>
+    </div>
+</div>
+<div class="card-columns">
+    <div *ngFor="let product of products" class="card">
+        <div class="card-header">{{product.brand}}</div>
+        <img [src]="product.picture " class="card-img-top img-fluid pixels" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">{{product.name}}</h5>
+            <p class="card-text"></p>
+            <h5>Precio<span class="badge badge-secondary">{{product.total_price}}Bs</span></h5>
+            <h5>Cantidad<span class="badge badge-secondary">{{product.product_amount}}</span></h5>
+        </div>
+        <button (click)="delete(product.productId)" type="button" class="btn btn-outline-danger btn-block">
+            Eliminar Producto
+        </button>
+    </div>
+</div>
+
+
+<!--------Payment--------->
+<div class="modal fade" id="paymentMethods" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <form (ngSubmit)="onPay(forma)" #forma="ngForm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title mx-auto">Seleccione Metodo de Pago</h5>
+                </div>
+                <form></form>
+                <div class="modal-body text-center">
+                    <select ngModel name="payment_method">
+                    <option value="delivery">Al momento de Entrega</option>
+                    <option value="online">Pago Online</option>
+                </select>
+                </div>
+                <div class="modal-footer">
+                    <div class="col">
+                        <div class="text-left">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="text-right">
+                            <button type="submit" class="btn btn-success" data-target="#payment" data-toggle="modal">Proceder con el pago</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!---------Payment---------->
+<div class="modal fade" id="payment" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <form (ngSubmit)="onPay(forma)" #forma="ngForm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title mx-auto">Pago</h5>
+                </div>
+                <form></form>
+                <div class="modal-body text-center">
+                    <h2>HI</h2>
+                </div>
+                <div class="modal-footer">
+                    <div class="col">
+                        <div class="text-left">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="text-right">
+                            <button type="submit" class="btn btn-success" data-dismiss="modal">Proceder con el pago</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -12,11 +12,27 @@
             <li class="nav-item" routerLinkActive="active">
                 <a class="nav-link" routerLink="home">Inicio</a>
             </li>
-            <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" routerLink="products">Productos</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Productos
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <div *ngFor="let category of categories">
+                        <a href="#" (click)="goToProductsOfCategories($event,category.id,category.name)" class="dropdown-item">{{category.name}}</a>
+                    </div>
+                </div>
             </li>
-            <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" routerLink="cart">Carrito</a>
+            <!-- <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" routerLink="products">Productos</a>
+            </li> -->
+            <li *ngIf="logged==true " class="nav-item " routerLinkActive="active ">
+                <a class="nav-link " routerLink="cart">Carrito</a>
+            </li>
+            <li *ngIf="logged==false " class="nav-item " routerLinkActive="active ">
+                <a class="nav-link " routerLink="login">Inicio de Sesion</a>
+            </li>
+            <li *ngIf="logged==true " (click)="closeSession() " class="nav-item " routerLinkActive="active ">
+                <a class="nav-link ">Cerrar Sesion</a>
             </li>
         </ul>
 

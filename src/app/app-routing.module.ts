@@ -1,9 +1,12 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { Constants } from './Constants';
 import { HomeComponent } from './components/home/home.component';
 import { ProductsComponent } from './components/products/products.component';
 import { CartComponent } from './components/cart/cart.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { PaymentComponent } from './components/payment/payment.component';
 
 
 const routes: Routes = [
@@ -23,6 +26,18 @@ const routes: Routes = [
   {
     path:Constants.ROUTE_CART,
     component: CartComponent
+  },
+  {
+    path:Constants.ROUTE_LOGIN,
+    component: LoginComponent
+  },
+  {
+    path:Constants.ROUTE_REGISTER,
+    component: RegisterComponent
+  },
+  {
+    path:Constants.ROUTE_PAYMENT,
+    component: PaymentComponent
   }
 ];
 

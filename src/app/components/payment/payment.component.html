@@ -1,0 +1,90 @@
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">Metodo de Pago</div>
+            <div class="card-body">
+                <form id="paymentForm">
+                    <div class="row">
+                        <div class="col-auto">
+                            <label>Precio Total En Dolares:</label>
+                            <input type="number" class="form-control" disabled value="{{totalPrice}}">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col">
+                            <label>Plataforma de Pago</label>
+                            <div class="form-group">
+                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+
+                                    <label data-target="#delivery" data-toggle="modal" class="btn btn-outline-secondary rounded m-2 p-1"> 
+                                    <input type="radio" name="payment_platform" value="Paypal">
+                                    <h5>Momento de</h5>
+                                    <h5>Entrega</h5>
+                                </label>
+                                    <div #paypal></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center mt-3">
+                        <button type="submit" id="payButton" class="btn btn-primary">Pagar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--------------paypal-------------->
+<div class="modal fade" id="paypal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title mx-auto">Pago</h5>
+            </div>
+            <form></form>
+            <div class="modal-body text-center">
+                <h2>HI</h2>
+            </div>
+            <div class="modal-footer">
+                <div class="col">
+                    <div class="text-left">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="text-right">
+                        <button type="submit" class="btn btn-success" data-dismiss="modal">Proceder con el pago</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!----------------delivery---------------->
+<div class="modal fade" id="delivery" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title mx-auto">Pago</h5>
+            </div>
+            <form></form>
+            <div class="modal-body text-center">
+                <h2>Ultimo proceso antes de la entrega</h2>
+            </div>
+            <div class="modal-footer">
+                <div class="col">
+                    <div class="text-left">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="text-right">
+                        <button (click)="pay()" type="submit" class="btn btn-success" data-dismiss="modal">Pedir Envio</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
