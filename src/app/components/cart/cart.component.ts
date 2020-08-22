@@ -10,14 +10,18 @@ import { Constants } from '../../Constants';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
+  cartEmpty:boolean;
+  message;
   products:any[];
   totalPrice:number;
   constructor(
     private router:Router,
     private _cartService:CartService
   ) { 
+    this.cartEmpty=false;
     this.products=[];
     this.totalPrice=0;
+    this.message='';
   }
 
   ngOnInit() {
@@ -26,15 +30,22 @@ export class CartComponent implements OnInit {
   getCart(){
     this._cartService.getCart().subscribe(
       Response=>{
+        if(Response=='Su carrito se encuentra vacio'){
+          console.log(Response);
+          this.cartEmpty=true;
+          this.message=Response;
+        }else{
         this.products=Response;
-        console.log(Response);
+        console.log(this.products);
+        this._cartService.getTotal().subscribe(
+          Response=>{
+            this.totalPrice=Response;
+          }
+        )
+        }
       }
     )
-    this._cartService.getTotal().subscribe(
-      Response=>{
-        this.totalPrice=Response;
-      }
-    )
+    
   }
   delete(productId){
     console.log(productId);

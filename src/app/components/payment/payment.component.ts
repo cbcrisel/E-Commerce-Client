@@ -1,5 +1,8 @@
 import { Component, OnInit, AfterViewChecked, ViewChild, ElementRef } from '@angular/core';
 import { CartService } from '../../services/cart/cart.service';
+import { ShipmentService } from '../../services/shipment/shipment.service';
+import { Router } from '@angular/router';
+import { Constants } from '../../Constants';
 
 declare var paypal:any;
 @Component({
@@ -30,7 +33,9 @@ export class PaymentComponent implements OnInit {
 
   }
   constructor(
-    private _cartService : CartService
+    private _cartService : CartService,
+    private _shipmentService : ShipmentService,
+    private router : Router
   ) { 
     this.totalPrice=0;
   }
@@ -57,6 +62,7 @@ export class PaymentComponent implements OnInit {
     onApprove:async(data,actions)=>{
       const order=await actions.order.capture();
       console.log(order);
+      
     },
     onError:err=>{
       console.log(err);
@@ -95,5 +101,12 @@ export class PaymentComponent implements OnInit {
       currency:'usd'
     }
     console.log(params);
+    this._shipmentService.pay(params).subscribe(
+      Response=>{
+        console.log(Response);
+        this.router.navigate([Constants.ROUTE_HOME]);
+      }
+    )
   }
+
 }

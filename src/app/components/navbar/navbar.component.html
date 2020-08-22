@@ -34,6 +34,9 @@
             <li *ngIf="logged==true " (click)="closeSession() " class="nav-item " routerLinkActive="active ">
                 <a class="nav-link ">Cerrar Sesion</a>
             </li>
+            <li *ngIf="admin==true" class="nav-item " routerLinkActive="active ">
+                <a class="nav-link " routerLink="shipment">ADMIN</a>
+            </li>
         </ul>
 
     </div>

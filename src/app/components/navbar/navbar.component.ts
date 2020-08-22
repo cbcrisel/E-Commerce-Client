@@ -16,7 +16,9 @@ export class NavbarComponent implements OnInit {
   categoryId:number;
   products:any[];
   logged:boolean;
+  admin:boolean;
   token:any;
+  id:any;
   constructor(
     private router:Router,
     private _categoryService:CategoryService,
@@ -27,6 +29,8 @@ export class NavbarComponent implements OnInit {
     this.categoryId=0;
     this.token=Utils.get(Constants.ACTUAL_ACCESS_TOKEN);
     this.logged= this.token != null;
+    this.id=Utils.get(Constants.USER_ID);
+    this.admin=this.id==1;
    }
 
   ngOnInit() {

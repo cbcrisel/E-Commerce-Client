@@ -1,4 +1,7 @@
-<div class="form-group row">
+<div *ngIf="cartEmpty==true">
+    <h5>{{message}}</h5>
+</div>
+<div *ngIf="cartEmpty==false" class="form-group row">
 
     <h3 class="col-8">Total:{{totalPrice}}</h3>
     <div class="col-2">

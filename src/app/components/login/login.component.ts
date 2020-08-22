@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
       Response=>{
         console.log(Response);
         Utils.set(Constants.ACTUAL_ACCESS_TOKEN, Response.access_token);
+        Utils.set(Constants.USER_ID,Response.id);
         location.reload();
         this.router.navigateByUrl('/register', {skipLocationChange: true}).then(()=>
         this.router.navigate([Constants.ROUTE_HOME])); 
