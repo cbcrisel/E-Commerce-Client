@@ -11,7 +11,7 @@ import { Constants } from '../Constants';
 })
 export class RequestService {
   private headers: HttpHeaders;
-  private url= "http://localhost:8000/api/"
+  private url= "http://ec2-3-133-110-23.us-east-2.compute.amazonaws.com/api"
   constructor(private _http: HttpClient) { 
 
   }
