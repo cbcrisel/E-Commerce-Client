@@ -33,6 +33,8 @@ export class LoginComponent implements OnInit {
         this.router.navigate([Constants.ROUTE_HOME])); 
         alert('INICIO DE SESION');
         
+      }, Error=>{
+        alert('Credenciales Incorrectas');
       }
     )
   }

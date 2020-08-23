@@ -31,8 +31,11 @@ export class RegisterComponent implements OnInit {
   guardar(forma:NgForm){
     this._userService.create(forma.value).subscribe(
       Response=>{
-        console.log(Response);
         this.router.navigate([Constants.ROUTE_HOME]);
+        alert('Inicie sesion con su nueva cuenta');
+      },error=>{
+        alert('Correo existente');
+        
       }
     )
   }
