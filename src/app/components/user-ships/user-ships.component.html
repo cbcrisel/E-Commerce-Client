@@ -1,0 +1,32 @@
+<div *ngIf="shipEmpty==true">
+    <h5>Aun No Realizo Pedidos</h5>
+</div>
+<div *ngIf="shipEmpty==false">
+    <table id="table" class="tbl table table-bordered table-hover">
+        <thead class="thead-dark">
+            <tr class="text-center">
+                <th class="align-middle">Precio</th>
+                <th class="align-middle">Fecha</th>
+                <th class="align-middle">Estado del Envio</th>
+                <th class="align-middle">Usuario</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let ship of shipments" class="text-center">
+                <td class="align-middle" scope="row">
+                    {{ship.total_price}}
+                </td>
+                <td class="text-center align-middle">
+                    {{ship.date}}
+                </td>
+                <td class="text-center align-middle">
+                    {{ship.status}}
+                </td>
+                <td class="text-center align-middle">
+                    {{ship.email}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <Button (click)="download()" class="btn btn-success m-2">Descargar PDF</Button>
+</div>

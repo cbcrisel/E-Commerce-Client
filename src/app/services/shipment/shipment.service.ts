@@ -21,4 +21,7 @@ export class ShipmentService {
   changeStage(shipId:number):Observable<any>{
     return this._requestService.get('setStage/'+shipId);
   }
+  getShipsOfAUser():Observable<any>{
+    return this._requestService.get('getShipsOfAUser');
+  }
 }

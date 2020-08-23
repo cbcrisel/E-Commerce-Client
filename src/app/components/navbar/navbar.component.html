@@ -32,10 +32,13 @@
                 <a class="nav-link " routerLink="login">Inicio de Sesion</a>
             </li>
             <li *ngIf="logged==true " (click)="closeSession() " class="nav-item " routerLinkActive="active ">
-                <a class="nav-link ">Cerrar Sesion</a>
+                <a class="nav-link " routerLink="home">Cerrar Sesion</a>
             </li>
             <li *ngIf="admin==true" class="nav-item " routerLinkActive="active ">
                 <a class="nav-link " routerLink="shipment">ADMIN</a>
+            </li>
+            <li *ngIf="logged==true" class="nav-item " routerLinkActive="active ">
+                <a class="nav-link " routerLink="user_ships">Mis Pedidos</a>
             </li>
         </ul>
 

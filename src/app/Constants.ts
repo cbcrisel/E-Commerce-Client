@@ -6,6 +6,7 @@ export class Constants{
     public static readonly ROUTE_REGISTER:string= "register";
     public static readonly ROUTE_PAYMENT:string= "payment";
     public static readonly ROUTE_SHIPMENTS:string = "shipment";
+    public static readonly ROUTE_USERSHIPS:string = "user_ships";
     public static readonly ERROR_LOCAL_VARIABLES:string = "error_local_variables" ;
     public static readonly ACTUAL_CATEGORY_ID: string = "actual_category_id";
     public static readonly ACTUAL_CATEGORY_NAME: string = "actual_category_name";

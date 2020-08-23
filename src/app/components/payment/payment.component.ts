@@ -91,7 +91,7 @@ export class PaymentComponent implements OnInit {
     this._cartService.getTotal().subscribe(
       Response=>{
         this.totalPrice=Response;
-        console.log(Response);
+       
       }
     )
   }
@@ -100,11 +100,12 @@ export class PaymentComponent implements OnInit {
       total_price:this.totalPrice,
       currency:'usd'
     }
-    console.log(params);
+    
     this._shipmentService.pay(params).subscribe(
       Response=>{
-        console.log(Response);
+        
         this.router.navigate([Constants.ROUTE_HOME]);
+        alert('Revisar sus pedidos')
       }
     )
   }

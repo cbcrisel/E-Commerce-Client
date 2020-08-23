@@ -74,7 +74,10 @@ export class NavbarComponent implements OnInit {
   }
   closeSession(){
     Utils.deleteAll();
-    this.router.navigate([Constants.ROUTE_HOME]);
-    window.location.reload();
+    
+    location.reload();
+       /*  this.router.navigateByUrl('/user_ships', {skipLocationChange: true}).then(()=>
+        this.router.navigate([Constants.ROUTE_HOME])); 
+        alert('CIERRE DE SESION EXITOSO'); */
   }
 }

@@ -1,33 +1,72 @@
-<table class="tbl table table-bordered table-hover">
-    <thead class="thead-dark">
-        <tr class="text-center">
-
-            <th class="align-middle">Envio</th>
-            <th class="align-middle">Fecha</th>
-            <th class="align-middle">Estado del Envio</th>
-            <th class="align-middle">Usuario</th>
-            <th class="align-middle">Cambiar Estado</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let ship of shipments" class="text-center">
-            <td class="align-middle" scope="row">
-                {{ship.id}}
-            </td>
-            <td class="text-center align-middle">
-                {{ship.date}}
-            </td>
-            <td class="text-center align-middle">
-                {{ship.status}}
-            </td>
-            <td class="text-center align-middle">
-                {{ship.email}}
-            </td>
-            <td class="text-center align-middle">
-                <button (click)="setInNextStage(ship.id)" class="btn btn-success m-2">
+<div>
+    <table id="table" class="tbl table table-bordered table-hover">
+        <thead class="thead-dark">
+            <tr class="text-center">
+                <th class="align-middle">
+                    <Button (click)="download()" class="btn btn-success m-2">Descargar PDF</Button>
+                </th>
+                <th class="align-middle">Envio</th>
+                <th class="align-middle">Fecha</th>
+                <th class="align-middle">Estado del Envio</th>
+                <th class="align-middle">Usuario</th>
+                <th class="align-middle">Cambiar Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let ship of shipments" class="text-center">
+                <td class="align-middle" scope="row" colspan="2">
+                    {{ship.id}}
+                </td>
+                <td class="text-center align-middle">
+                    {{ship.date}}
+                </td>
+                <td class="text-center align-middle">
+                    {{ship.status}}
+                </td>
+                <td class="text-center align-middle">
+                    {{ship.email}}
+                </td>
+                <td class="text-center align-middle">
+                    <button (click)="setInNextStage(ship.id)" class="btn btn-success m-2">
                     Cambiar al Siguiente Estado
                 </button>
-            </td>
-        </tr>
-    </tbody>
-</table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div *ngIf="view==true" id="content" #content>
+    <table class="tbl table table-bordered table-hover">
+        <thead class="thead-dark">
+            <tr class="text-center">
+
+                <th class="align-middle">Envio</th>
+                <th class="align-middle">Fecha</th>
+                <th class="align-middle">Estado del Envio</th>
+                <th class="align-middle">Usuario</th>
+                <!--  <th class="align-middle">Cambiar Estado</th> -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let ship of shipments" class="text-center">
+                <td class="align-middle" scope="row">
+                    {{ship.id}}
+                </td>
+                <td class="text-center align-middle">
+                    {{ship.date}}
+                </td>
+                <td class="text-center align-middle">
+                    {{ship.status}}
+                </td>
+                <td class="text-center align-middle">
+                    {{ship.email}}
+                </td>
+                <!--  <td class="text-center align-middle">
+                    <button (click)="setInNextStage(ship.id)" class="btn btn-success m-2">
+                    Cambiar al Siguiente Estado
+                </button>
+                </td> -->
+            </tr>
+        </tbody>
+    </table>
+</div>

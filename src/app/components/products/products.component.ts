@@ -49,11 +49,15 @@ export class ProductsComponent implements OnInit {
     )
   }
   addProduct(productId,forma:NgForm){
+    if(forma.value.product_amount==""){
+      alert('Seleccione una cantidad del producto');
+    }
     console.log(productId);
     console.log(forma.value);
     this._orderService.addProducts(productId,forma.value).subscribe(
       Response=>{
         console.log(Response);
+        alert('Producto Añadido');
       }
     )
   }
